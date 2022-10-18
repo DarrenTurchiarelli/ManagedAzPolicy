@@ -1,5 +1,8 @@
 # AzPolicyAsCode
 
+To implement the recommended policies that align to the CAF framework. Deploy the CAF.tf file. This can be achieved by installing terraform.exe from hashicorp. 
+Then run 'terraform init' and if you have the management group structure and permissions, run 'terraform plan' and 'terraform apply' to deploy them.
+
 An Azure Policy as Code workflow makes it possible to manage your policy definitions and assignments as code, control the lifecycle of updating those definitions, and automate the validating of compliance results. In this repo, you can learn to use Azure Policy features with GitHub to build a lifecycle process. 
 
 Citations: 
