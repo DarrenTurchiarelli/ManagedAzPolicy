@@ -1,0 +1,72 @@
+{
+ "sku": {
+  "name": "A0",
+  "tier": "Free"
+ },
+ "identity": {
+  "principalId": "b26f4162-d520-4e88-aa41-59a3f7823d90",
+  "tenantId": "2e3988ea-da07-42da-9b5f-7c3f05b3eaf7",
+  "type": "SystemAssigned"
+ },
+ "properties": {
+  "displayName": "Deploy Microsoft Defender for Cloud configuration",
+  "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/dt/providers/Microsoft.Authorization/policySetDefinitions/Deploy-MDFC-Config",
+  "scope": "/providers/Microsoft.Management/managementGroups/dt",
+  "parameters": {
+   "ascExportResourceGroupLocation": {
+    "value": "eastus"
+   },
+   "ascExportResourceGroupName": {
+    "value": "dt-asc-export"
+   },
+   "emailSecurityContact": {
+    "value": "security_contact@replace_me"
+   },
+   "enableAscForAppServices": {
+    "value": "DeployIfNotExists"
+   },
+   "enableAscForArm": {
+    "value": "DeployIfNotExists"
+   },
+   "enableAscForContainers": {
+    "value": "DeployIfNotExists"
+   },
+   "enableAscForDns": {
+    "value": "DeployIfNotExists"
+   },
+   "enableAscForKeyVault": {
+    "value": "DeployIfNotExists"
+   },
+   "enableAscForOssDb": {
+    "value": "DeployIfNotExists"
+   },
+   "enableAscForServers": {
+    "value": "DeployIfNotExists"
+   },
+   "enableAscForSql": {
+    "value": "DeployIfNotExists"
+   },
+   "enableAscForSqlOnVm": {
+    "value": "DeployIfNotExists"
+   },
+   "enableAscForStorage": {
+    "value": "DeployIfNotExists"
+   },
+   "logAnalytics": {
+    "value": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/dt-mgmt/providers/Microsoft.OperationalInsights/workspaces/dt-la"
+   }
+  },
+  "description": "Deploy Microsoft Defender for Cloud and Security Contacts",
+  "metadata": {
+   "createdBy": "2394e203-969f-432a-a31e-ad991b40a835",
+   "createdOn": "2022-10-17T23:40:09.8600928Z",
+   "updatedBy": null,
+   "updatedOn": null
+  },
+  "enforcementMode": "Default"
+ },
+ "id": "/providers/Microsoft.Management/managementGroups/dt/providers/Microsoft.Authorization/policyAssignments/Deploy-MDFC-Config",
+ "type": "Microsoft.Authorization/policyAssignments",
+ "name": "Deploy-MDFC-Config",
+ "location": "eastus"
+}

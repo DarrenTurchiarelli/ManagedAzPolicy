@@ -1,0 +1,57 @@
+{
+ "properties": {
+  "displayName": "Deny vNet peering cross subscription.",
+  "policyType": "Custom",
+  "mode": "All",
+  "description": "This policy denies the creation of vNet Peerings outside of the same subscriptions under the assigned scope.",
+  "metadata": {
+   "alzCloudEnvironments": [
+    "AzureCloud",
+    "AzureChinaCloud",
+    "AzureUSGovernment"
+   ],
+   "category": "Network",
+   "source": "https://github.com/Azure/Enterprise-Scale/",
+   "version": "1.0.1",
+   "createdBy": "2394e203-969f-432a-a31e-ad991b40a835",
+   "createdOn": "2022-10-17T23:25:04.0212641Z",
+   "updatedBy": null,
+   "updatedOn": null
+  },
+  "parameters": {
+   "effect": {
+    "type": "String",
+    "metadata": {
+     "description": "Enable or disable the execution of the policy",
+     "displayName": "Effect"
+    },
+    "allowedValues": [
+     "Audit",
+     "Deny",
+     "Disabled"
+    ],
+    "defaultValue": "Deny"
+   }
+  },
+  "policyRule": {
+   "if": {
+    "allOf": [
+     {
+      "equals": "Microsoft.Network/virtualNetworks/virtualNetworkPeerings",
+      "field": "type"
+     },
+     {
+      "field": "Microsoft.Network/virtualNetworks/virtualNetworkPeerings/remoteVirtualNetwork.id",
+      "notcontains": "[subscription().id]"
+     }
+    ]
+   },
+   "then": {
+    "effect": "[parameters('effect')]"
+   }
+  }
+ },
+ "id": "/providers/Microsoft.Management/managementGroups/dt/providers/Microsoft.Authorization/policyDefinitions/Deny-VNET-Peer-Cross-Sub",
+ "type": "Microsoft.Authorization/policyDefinitions",
+ "name": "Deny-VNET-Peer-Cross-Sub"
+}

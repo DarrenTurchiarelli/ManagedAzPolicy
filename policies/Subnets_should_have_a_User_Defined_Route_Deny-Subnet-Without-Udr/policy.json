@@ -1,0 +1,101 @@
+{
+ "properties": {
+  "displayName": "Subnets should have a User Defined Route",
+  "policyType": "Custom",
+  "mode": "All",
+  "description": "This policy denies the creation of a subnet without a User Defined Route (UDR).",
+  "metadata": {
+   "alzCloudEnvironments": [
+    "AzureCloud",
+    "AzureChinaCloud",
+    "AzureUSGovernment"
+   ],
+   "category": "Network",
+   "source": "https://github.com/Azure/Enterprise-Scale/",
+   "version": "2.0.0",
+   "createdBy": "2394e203-969f-432a-a31e-ad991b40a835",
+   "createdOn": "2022-10-17T23:28:08.1193689Z",
+   "updatedBy": null,
+   "updatedOn": null
+  },
+  "parameters": {
+   "effect": {
+    "type": "String",
+    "metadata": {
+     "description": "Enable or disable the execution of the policy",
+     "displayName": "Effect"
+    },
+    "allowedValues": [
+     "Audit",
+     "Deny",
+     "Disabled"
+    ],
+    "defaultValue": "Deny"
+   },
+   "excludedSubnets": {
+    "type": "Array",
+    "metadata": {
+     "description": "Array of subnet names that are excluded from this policy",
+     "displayName": "Excluded Subnets"
+    },
+    "defaultValue": [
+     "AzureBastionSubnet"
+    ]
+   }
+  },
+  "policyRule": {
+   "if": {
+    "anyOf": [
+     {
+      "allOf": [
+       {
+        "equals": "Microsoft.Network/virtualNetworks",
+        "field": "type"
+       },
+       {
+        "count": {
+         "field": "Microsoft.Network/virtualNetworks/subnets[*]",
+         "where": {
+          "allOf": [
+           {
+            "exists": "false",
+            "field": "Microsoft.Network/virtualNetworks/subnets[*].routeTable.id"
+           },
+           {
+            "field": "Microsoft.Network/virtualNetworks/subnets[*].name",
+            "notIn": "[parameters('excludedSubnets')]"
+           }
+          ]
+         }
+        },
+        "notEquals": 0
+       }
+      ]
+     },
+     {
+      "allOf": [
+       {
+        "equals": "Microsoft.Network/virtualNetworks/subnets",
+        "field": "type"
+       },
+       {
+        "field": "name",
+        "notIn": "[parameters('excludedSubnets')]"
+       },
+       {
+        "exists": "false",
+        "field": "Microsoft.Network/virtualNetworks/subnets/routeTable.id"
+       }
+      ]
+     }
+    ]
+   },
+   "then": {
+    "effect": "[parameters('effect')]"
+   }
+  }
+ },
+ "id": "/providers/Microsoft.Management/managementGroups/dt/providers/Microsoft.Authorization/policyDefinitions/Deny-Subnet-Without-Udr",
+ "type": "Microsoft.Authorization/policyDefinitions",
+ "name": "Deny-Subnet-Without-Udr"
+}

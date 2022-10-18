@@ -1,0 +1,28 @@
+{
+ "sku": {
+  "name": "A0",
+  "tier": "Free"
+ },
+ "properties": {
+  "displayName": "Deny the creation of public IP",
+  "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/dt/providers/Microsoft.Authorization/policyDefinitions/Deny-PublicIP",
+  "scope": "/providers/Microsoft.Management/managementGroups/dt-identity",
+  "parameters": {
+   "effect": {
+    "value": "Deny"
+   }
+  },
+  "description": "This policy denies creation of Public IPs under the assigned scope.",
+  "metadata": {
+   "createdBy": "2394e203-969f-432a-a31e-ad991b40a835",
+   "createdOn": "2022-10-17T23:40:04.5133748Z",
+   "updatedBy": null,
+   "updatedOn": null
+  },
+  "enforcementMode": "Default"
+ },
+ "id": "/providers/Microsoft.Management/managementGroups/dt-identity/providers/Microsoft.Authorization/policyAssignments/Deny-Public-IP",
+ "type": "Microsoft.Authorization/policyAssignments",
+ "name": "Deny-Public-IP",
+ "location": "eastus"
+}

@@ -1,0 +1,23 @@
+{
+ "sku": {
+  "name": "A0",
+  "tier": "Free"
+ },
+ "properties": {
+  "displayName": "RDP access from the Internet should be blocked",
+  "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/dt/providers/Microsoft.Authorization/policyDefinitions/Deny-RDP-From-Internet",
+  "scope": "/providers/Microsoft.Management/managementGroups/dt-landing-zones",
+  "description": "This policy denies any network security rule that allows RDP access from Internet.",
+  "metadata": {
+   "createdBy": "2394e203-969f-432a-a31e-ad991b40a835",
+   "createdOn": "2022-10-17T23:38:26.4891846Z",
+   "updatedBy": null,
+   "updatedOn": null
+  },
+  "enforcementMode": "Default"
+ },
+ "id": "/providers/Microsoft.Management/managementGroups/dt-landing-zones/providers/Microsoft.Authorization/policyAssignments/Deny-RDP-From-Internet",
+ "type": "Microsoft.Authorization/policyAssignments",
+ "name": "Deny-RDP-From-Internet",
+ "location": "eastus"
+}
