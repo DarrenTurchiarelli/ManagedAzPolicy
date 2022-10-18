@@ -1,24 +1,63 @@
-# File: .github/workflows/OIDC_workflow.yml
-
-name: Run Azure Login with OIDC
-on: [push]
-
+name: Test
+ 
+# Controls when the workflow will run
+on:
+  push:
+    branches: [ main ]
+ 
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+ 
+# Allow the action to get the required token
 permissions:
-      id-token: write
-      contents: read
-jobs: 
-  build-and-deploy:
-    runs-on: ubuntu-latest
-    steps:
-      - name: 'Az CLI login'
-        uses: azure/login@v1
-        with:
-          client-id: ${{ secrets.AZURE_CLIENT_ID }}
-          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
-          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
-  
-      - name: 'Run az commands'
-        run: |
-          az account show
-          az group list
-          pwd 
+  id-token: write
+  contents: read
+ 
+# Our Azure environment that we want to sign into
+env:
+  CLIENT_ID: 8a9944b7-0ecb-41e5-a08c-3837da634b47
+  TENANT_ID: 2e3988ea-da07-42da-9b5f-7c3f05b3eaf7
+ 
+jobs:
+  Test:
+      runs-on: windows-latest
+      steps:
+        # Get users from Azure AD using access token provided by Azure CLI
+        - name: 'Get graph access token'
+          uses: azure/powershell@v1
+          with:
+            inlineScript: |
+              # 1 - Get JWT from GitHub
+              $audience = "api://AzureADTokenExchange"
+              $url = "{0}&audience={1}" -f $ENV:ACTIONS_ID_TOKEN_REQUEST_URL, $audience
+              $githubjwt = Invoke-RestMethod $url -Headers @{Authorization = ("bearer {0}" -f $ENV:ACTIONS_ID_TOKEN_REQUEST_TOKEN)}
+               
+              # 2 - Print GitHub url and payload to screen for debuging
+              Write-Host "GitHub JWT url: $url"
+              Write-Host "GitHub JWT payload:"             
+              $payload = ($githubjwt.Value -split "\.")[1]
+              if(($payload.Length % 4) -ne 0) {
+                $payload = $payload.PadRight($payload.Length + 4 - ($payload.Length % 4), "=")
+              }
+              [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($payload)) | convertfrom-json | convertto-json # Pretty print
+               
+              # 3 - Use the GitHub JWT as proof for authenticating as the app defined in env.CLIENT_ID:
+              $uri = "https://login.microsoftonline.com/{0}/oauth2/v2.0/token" -f "${{env.TENANT_ID}}"
+              $body = "scope=https://graph.microsoft.com/.default&client_id=${{env.CLIENT_ID}}&grant_type=client_credentials&client_assertion_type=urn:ietf:params:oauth:client-assertion-type:jwt-bearer&client_assertion={0}" -f [System.Net.WebUtility]::UrlEncode($githubjwt.Value)
+              $aadtoken = Invoke-RestMethod $uri -Body $body -ContentType "application/x-www-form-urlencoded" -ErrorAction SilentlyContinue
+ 
+              # 4 - Print AAD url and payload to screen for debuging
+              Write-Host "AAD JWT url: $uri"
+              Write-Host "AAD JWT payload:"
+ 
+              # Fix padding characters
+              $payload = ($aadtoken.access_token -split "\.")[1]
+              if(($payload.Length % 4) -ne 0) {
+                $payload = $payload.PadRight($payload.Length + 4 - ($payload.Length % 4), "=")
+              }
+              [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($payload)) | convertfrom-json | convertto-json
+ 
+              # 5 - Use the received token to get users from Graph
+              Write-Host "Getting users from AAD:"
+              Invoke-RestMethod "https://graph.microsoft.com/v1.0/users" -Headers @{Authorization = ("Bearer {0}" -f $aadtoken.access_token)} | Select-Object -ExpandProperty value | Measure-Object | Select-Object -ExpandProperty Count
+            azPSVersion: "latest"
