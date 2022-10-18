@@ -1,0 +1,29 @@
+{
+ "sku": {
+  "name": "A0",
+  "tier": "Free"
+ },
+ "properties": {
+  "displayName": "Deny-resource-without-tag",
+  "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/dt/providers/Microsoft.Authorization/policyDefinitions/358f00f5-7fa5-4ed5-90a8-1afeaa381e57",
+  "scope": "/providers/Microsoft.Management/managementGroups/dt",
+  "notScopes": [],
+  "parameters": {
+   "tagName": {
+    "value": "DarrenTurchiarelli"
+   }
+  },
+  "metadata": {
+   "assignedBy": "Darren Turchiarelli",
+   "parameterScopes": {},
+   "createdBy": "2394e203-969f-432a-a31e-ad991b40a835",
+   "createdOn": "2022-10-18T23:47:50.7496224Z",
+   "updatedBy": null,
+   "updatedOn": null
+  },
+  "enforcementMode": "Default"
+ },
+ "id": "/providers/Microsoft.Management/managementGroups/dt/providers/Microsoft.Authorization/policyAssignments/3bb4012ef30c4084aad626a9",
+ "type": "Microsoft.Authorization/policyAssignments",
+ "name": "3bb4012ef30c4084aad626a9"
+}

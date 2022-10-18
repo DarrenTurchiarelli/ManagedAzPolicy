@@ -1,0 +1,40 @@
+{
+ "properties": {
+  "displayName": "Deny-resource-without-tag",
+  "policyType": "Custom",
+  "mode": "Indexed",
+  "description": "Deny-resource-without-tag",
+  "metadata": {
+   "category": "General",
+   "createdBy": "2394e203-969f-432a-a31e-ad991b40a835",
+   "createdOn": "2022-10-18T23:44:48.1158937Z",
+   "updatedBy": "2394e203-969f-432a-a31e-ad991b40a835",
+   "updatedOn": "2022-10-18T23:46:02.8662382Z"
+  },
+  "parameters": {
+   "tagName": {
+    "type": "String",
+    "metadata": {
+     "displayName": "Service_Owner",
+     "description": "Name of the tag to enforce"
+    }
+   }
+  },
+  "policyRule": {
+   "if": {
+    "allof": [
+     {
+      "field": "[concat('tags[', parameters('tagName'), ']')]",
+      "exists": "false"
+     }
+    ]
+   },
+   "then": {
+    "effect": "deny"
+   }
+  }
+ },
+ "id": "/providers/Microsoft.Management/managementGroups/dt/providers/Microsoft.Authorization/policyDefinitions/358f00f5-7fa5-4ed5-90a8-1afeaa381e57",
+ "type": "Microsoft.Authorization/policyDefinitions",
+ "name": "358f00f5-7fa5-4ed5-90a8-1afeaa381e57"
+}
