@@ -1,4 +1,4 @@
-name: manage-azure-policy-a0ddb42a
+name: manage-azure-policy-definitions
 on:
   workflow_dispatch:
     inputs:
