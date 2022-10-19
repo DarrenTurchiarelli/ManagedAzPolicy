@@ -1,4 +1,4 @@
-name: manage-azure-policy-037193e5
+name: manage-azure-policy-initiatives
 on:
   workflow_dispatch:
     inputs:
