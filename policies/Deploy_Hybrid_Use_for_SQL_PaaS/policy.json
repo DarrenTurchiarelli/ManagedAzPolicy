@@ -95,7 +95,7 @@
         }
     },
     "parameters": {}
-},
+}
 "id": "/providers/Microsoft.Management/managementGroups/dt/providers/Microsoft.Authorization/policyDefinitions/Deploy-hybrid-use-for-SQL-PaaS",
 "type": "Microsoft.Authorization/policyDefinitions",
 "name": "Deploy-hybrid-use-for-SQL-PaaS"
