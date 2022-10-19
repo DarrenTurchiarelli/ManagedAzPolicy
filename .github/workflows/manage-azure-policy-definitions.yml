@@ -119,6 +119,8 @@ on:
 #      - 'policies/Deploy_Diagnostic_Settings_for_Cognitive_Services_to_Log_Analytics_workspace_Deploy-Diagnostics-CognitiveServices/**'
 #      - 'policies/Deploy_Diagnostic_Settings_for_CDN_Endpoint_to_Log_Analytics_workspace_Deploy-Diagnostics-CDNEndpoints/**'
 #      - 'policies/Deploy_Diagnostic_Settings_for_Azure_Bastion_to_Log_Analytics_workspace_Deploy-Diagnostics-Bastion/**'
+#      - 'policies/Deploy-hybrid-use-for-SQL-PaaS/**'
+
 #      - .github/workflows/manage-azure-policy-a0ddb42a.yml
 jobs:
   apply-azure-policy:
@@ -242,3 +244,4 @@ jobs:
           policies/Deploy_Diagnostic_Settings_for_Cognitive_Services_to_Log_Analytics_workspace_Deploy-Diagnostics-CognitiveServices/**
           policies/Deploy_Diagnostic_Settings_for_CDN_Endpoint_to_Log_Analytics_workspace_Deploy-Diagnostics-CDNEndpoints/**
           policies/Deploy_Diagnostic_Settings_for_Azure_Bastion_to_Log_Analytics_workspace_Deploy-Diagnostics-Bastion/**
+          policies/Deploy-hybrid-use-for-SQL-PaaS/**
