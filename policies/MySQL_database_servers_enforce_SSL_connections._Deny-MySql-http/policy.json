@@ -15,8 +15,15 @@
    "version": "1.0.0",
    "createdBy": "2394e203-969f-432a-a31e-ad991b40a835",
    "createdOn": "2022-10-17T23:20:27.9540832Z",
-   "updatedBy": null,
-   "updatedOn": null
+   "updatedBy": "9aa0a562-2d90-40b7-ac58-c95a00d1c4b6",
+   "updatedOn": "2022-10-19T01:37:14.2576375Z",
+   "gitHubPolicy": {
+    "digest": "ac301a15c08de7245bcb19e7740c9caf973f3b47",
+    "repoName": "DarrenTurchiarelli/AzPolicyExport",
+    "commitSha": "16426ae81d42a3392ca6498d2a4aad4373e261e6",
+    "runUrl": "https://github.com/DarrenTurchiarelli/AzPolicyExport/actions/runs/3278181977",
+    "filepath": "policies/MySQL_database_servers_enforce_SSL_connections._Deny-MySql-http"
+   }
   },
   "parameters": {
    "effect": {

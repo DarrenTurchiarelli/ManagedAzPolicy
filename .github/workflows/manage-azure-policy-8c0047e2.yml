@@ -1,0 +1,80 @@
+name: manage-azure-policy-8c0047e2
+on:
+  workflow_dispatch:
+    inputs:
+      remarks:
+        description: 'Reason for triggering the workflow run'
+        required: false
+        default: 'Updating Azure Policies'
+
+
+## Uncomment the following if you wish to automatically trigger workflow run with every commit
+#
+#  push:
+#    paths:
+#      - 'policies/Deny-resource-without-tag_358f00f5-7fa5-4ed5-90a8-1afeaa381e57/**'
+#      - 'policies/AppService_append_enable_https_only_setting_to_enforce_https_setting._Append-AppService-httpsonly/**'
+#      - 'policies/AppService_append_sites_with_minimum_TLS_version_to_enforce._Append-AppService-latestTLS/**'
+#      - 'policies/KeyVault_SoftDelete_should_be_enabled_Append-KV-SoftDelete/**'
+#      - 'policies/Azure_Cache_for_Redis_Append_and_the_enforcement_that_enableNonSslPort_is_disabled._Append-Redis-disableNonSslPort/**'
+#      - 'policies/Azure_Cache_for_Redis_Append_a_specific_min_TLS_version_requirement_and_enforce_TLS._Append-Redis-sslEnforcement/**'
+#      - 'policies/Control_private_endpoint_connections_to_Azure_Machine_Learning_Audit-MachineLearning-PrivateEndpointId/**'
+#      - 'policies/Application_Gateway_should_be_deployed_with_WAF_enabled_Deny-AppGW-Without-WAF/**'
+#      - 'policies/API_App_should_only_be_accessible_over_HTTPS_Deny-AppServiceApiApp-http/**'
+#      - 'policies/No_child_resources_in_Automation_Account_Deny-AA-child-resources/**'
+#      - 'policies/PostgreSQL_database_servers_enforce_SSL_connection._Deny-PostgreSql-http/**'
+#      - 'policies/MySQL_database_servers_enforce_SSL_connections._Deny-MySql-http/**'
+#      - 'policies/Azure_Machine_Learning_should_have_disabled_public_network_access_Deny-MachineLearning-PublicNetworkAccess/**'
+#      - 'policies/Enforces_high_business_impact_Azure_Machine_Learning_Workspaces_Deny-MachineLearning-HbiWorkspace/**'
+#      - 'policies/Enforce_scale_settings_for_Azure_Machine_Learning_compute_clusters_Deny-MachineLearning-ComputeCluster-Scale/**'
+#      - 'policies/Limit_allowed_vm_sizes_for_Azure_Machine_Learning_compute_clusters_and_compute_instances_Deny-MachineLearning-Compute-VmSize/**'
+#      - 'policies/Enforce_subnet_connectivity_for_Azure_Machine_Learning_compute_clusters_and_compute_instances_Deny-MachineLearning-Compute-SubnetId/**'
+#      - 'policies/Deny_AKS_cluster_creation_in_Azure_Machine_Learning_Deny-MachineLearning-Aks/**'
+#      - 'policies/Deny_Databricks_workspaces_without_Vnet_injection_Deny-Databricks-VirtualNetwork/**'
+#      - 'policies/Deny_non-premium_Databricks_sku_Deny-Databricks-Sku/**'
+#      - 'policies/Deny_public_IPs_for_Databricks_cluster_Deny-Databricks-NoPublicIp/**'
+#      - 'policies/Web_Application_should_only_be_accessible_over_HTTPS_Deny-AppServiceWebApp-http/**'
+#      - 'policies/Function_App_should_only_be_accessible_over_HTTPS_Deny-AppServiceFunctionApp-http/**'
+#      - 'policies/Deny_public_access_of_Azure_Machine_Learning_clusters_via_SSH_Deny-MachineLearning-ComputeCluster-RemoteLoginPortPublicAccess/**'
+#      - 'policies/Deny_public_acces_behind_vnet_to_Azure_Machine_Learning_workspace_Deny-MachineLearning-PublicAccessWhenBehindVnet/**'
+#      - .github/workflows/manage-azure-policy-8c0047e2.yml
+jobs:
+  apply-azure-policy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: Login to Azure
+      uses: azure/login@v1
+      with:
+        creds: ${{secrets.AZURE_CREDENTIALS_8c0047e2}}
+        allow-no-subscriptions: true
+    - name: Create or Update Azure Policies
+      uses: azure/manage-azure-policy@v0
+      with:
+        paths: |
+          policies/Deny-resource-without-tag_358f00f5-7fa5-4ed5-90a8-1afeaa381e57/**
+          policies/AppService_append_enable_https_only_setting_to_enforce_https_setting._Append-AppService-httpsonly/**
+          policies/AppService_append_sites_with_minimum_TLS_version_to_enforce._Append-AppService-latestTLS/**
+          policies/KeyVault_SoftDelete_should_be_enabled_Append-KV-SoftDelete/**
+          policies/Azure_Cache_for_Redis_Append_and_the_enforcement_that_enableNonSslPort_is_disabled._Append-Redis-disableNonSslPort/**
+          policies/Azure_Cache_for_Redis_Append_a_specific_min_TLS_version_requirement_and_enforce_TLS._Append-Redis-sslEnforcement/**
+          policies/Control_private_endpoint_connections_to_Azure_Machine_Learning_Audit-MachineLearning-PrivateEndpointId/**
+          policies/Application_Gateway_should_be_deployed_with_WAF_enabled_Deny-AppGW-Without-WAF/**
+          policies/API_App_should_only_be_accessible_over_HTTPS_Deny-AppServiceApiApp-http/**
+          policies/No_child_resources_in_Automation_Account_Deny-AA-child-resources/**
+          policies/PostgreSQL_database_servers_enforce_SSL_connection._Deny-PostgreSql-http/**
+          policies/MySQL_database_servers_enforce_SSL_connections._Deny-MySql-http/**
+          policies/Azure_Machine_Learning_should_have_disabled_public_network_access_Deny-MachineLearning-PublicNetworkAccess/**
+          policies/Enforces_high_business_impact_Azure_Machine_Learning_Workspaces_Deny-MachineLearning-HbiWorkspace/**
+          policies/Enforce_scale_settings_for_Azure_Machine_Learning_compute_clusters_Deny-MachineLearning-ComputeCluster-Scale/**
+          policies/Limit_allowed_vm_sizes_for_Azure_Machine_Learning_compute_clusters_and_compute_instances_Deny-MachineLearning-Compute-VmSize/**
+          policies/Enforce_subnet_connectivity_for_Azure_Machine_Learning_compute_clusters_and_compute_instances_Deny-MachineLearning-Compute-SubnetId/**
+          policies/Deny_AKS_cluster_creation_in_Azure_Machine_Learning_Deny-MachineLearning-Aks/**
+          policies/Deny_Databricks_workspaces_without_Vnet_injection_Deny-Databricks-VirtualNetwork/**
+          policies/Deny_non-premium_Databricks_sku_Deny-Databricks-Sku/**
+          policies/Deny_public_IPs_for_Databricks_cluster_Deny-Databricks-NoPublicIp/**
+          policies/Web_Application_should_only_be_accessible_over_HTTPS_Deny-AppServiceWebApp-http/**
+          policies/Function_App_should_only_be_accessible_over_HTTPS_Deny-AppServiceFunctionApp-http/**
+          policies/Deny_public_access_of_Azure_Machine_Learning_clusters_via_SSH_Deny-MachineLearning-ComputeCluster-RemoteLoginPortPublicAccess/**
+          policies/Deny_public_acces_behind_vnet_to_Azure_Machine_Learning_workspace_Deny-MachineLearning-PublicAccessWhenBehindVnet/**

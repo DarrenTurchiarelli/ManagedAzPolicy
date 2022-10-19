@@ -15,8 +15,15 @@
    "version": "1.0.0",
    "createdBy": "2394e203-969f-432a-a31e-ad991b40a835",
    "createdOn": "2022-10-17T23:23:33.5281094Z",
-   "updatedBy": null,
-   "updatedOn": null
+   "updatedBy": "9aa0a562-2d90-40b7-ac58-c95a00d1c4b6",
+   "updatedOn": "2022-10-19T01:37:13.6607769Z",
+   "gitHubPolicy": {
+    "digest": "c395e28313b2b11baa55e9d170a5805ab71bd0b8",
+    "repoName": "DarrenTurchiarelli/AzPolicyExport",
+    "commitSha": "16426ae81d42a3392ca6498d2a4aad4373e261e6",
+    "runUrl": "https://github.com/DarrenTurchiarelli/AzPolicyExport/actions/runs/3278181977",
+    "filepath": "policies/Web_Application_should_only_be_accessible_over_HTTPS_Deny-AppServiceWebApp-http"
+   }
   },
   "parameters": {
    "effect": {

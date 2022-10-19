@@ -15,8 +15,15 @@
    "version": "1.0.0",
    "createdBy": "2394e203-969f-432a-a31e-ad991b40a835",
    "createdOn": "2022-10-17T23:23:32.4066126Z",
-   "updatedBy": null,
-   "updatedOn": null
+   "updatedBy": "9aa0a562-2d90-40b7-ac58-c95a00d1c4b6",
+   "updatedOn": "2022-10-19T01:37:13.2987031Z",
+   "gitHubPolicy": {
+    "digest": "9efdecf03189144e401eacea8eecae5e892c3636",
+    "repoName": "DarrenTurchiarelli/AzPolicyExport",
+    "commitSha": "16426ae81d42a3392ca6498d2a4aad4373e261e6",
+    "runUrl": "https://github.com/DarrenTurchiarelli/AzPolicyExport/actions/runs/3278181977",
+    "filepath": "policies/Azure_Cache_for_Redis_Append_a_specific_min_TLS_version_requirement_and_enforce_TLS._Append-Redis-sslEnforcement"
+   }
   },
   "parameters": {
    "effect": {

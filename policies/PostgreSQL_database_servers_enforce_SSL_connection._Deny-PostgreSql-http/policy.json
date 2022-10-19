@@ -15,8 +15,15 @@
    "version": "1.0.1",
    "createdBy": "2394e203-969f-432a-a31e-ad991b40a835",
    "createdOn": "2022-10-17T23:32:57.7758815Z",
-   "updatedBy": null,
-   "updatedOn": null
+   "updatedBy": "9aa0a562-2d90-40b7-ac58-c95a00d1c4b6",
+   "updatedOn": "2022-10-19T01:37:14.2566304Z",
+   "gitHubPolicy": {
+    "digest": "229e6847e41de092d4207ffa776a3e756b245b47",
+    "repoName": "DarrenTurchiarelli/AzPolicyExport",
+    "commitSha": "16426ae81d42a3392ca6498d2a4aad4373e261e6",
+    "runUrl": "https://github.com/DarrenTurchiarelli/AzPolicyExport/actions/runs/3278181977",
+    "filepath": "policies/PostgreSQL_database_servers_enforce_SSL_connection._Deny-PostgreSql-http"
+   }
   },
   "parameters": {
    "effect": {

@@ -14,8 +14,15 @@
    "version": "1.0.0",
    "createdBy": "2394e203-969f-432a-a31e-ad991b40a835",
    "createdOn": "2022-10-17T23:20:27.8337741Z",
-   "updatedBy": null,
-   "updatedOn": null
+   "updatedBy": "9aa0a562-2d90-40b7-ac58-c95a00d1c4b6",
+   "updatedOn": "2022-10-19T01:37:13.3004164Z",
+   "gitHubPolicy": {
+    "digest": "08d7db1a84d4cab64037496e5e2abb434d7a7619",
+    "repoName": "DarrenTurchiarelli/AzPolicyExport",
+    "commitSha": "16426ae81d42a3392ca6498d2a4aad4373e261e6",
+    "runUrl": "https://github.com/DarrenTurchiarelli/AzPolicyExport/actions/runs/3278181977",
+    "filepath": "policies/No_child_resources_in_Automation_Account_Deny-AA-child-resources"
+   }
   },
   "parameters": {
    "effect": {

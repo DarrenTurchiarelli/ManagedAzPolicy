@@ -8,13 +8,13 @@
    "category": "General",
    "createdBy": "2394e203-969f-432a-a31e-ad991b40a835",
    "createdOn": "2022-10-18T23:44:48.1158937Z",
-   "updatedBy": "ea21ae94-8083-4f5e-b306-f77da79a940b",
-   "updatedOn": "2022-10-19T01:29:11.6855266Z",
+   "updatedBy": "9aa0a562-2d90-40b7-ac58-c95a00d1c4b6",
+   "updatedOn": "2022-10-19T01:37:13.3007313Z",
    "gitHubPolicy": {
-    "digest": "360017c7013c4a829beec0c6f0d9c154cee26e45",
+    "digest": "fcac42bd950761fbd404c3eb6df6696ea8e1a0e9",
     "repoName": "DarrenTurchiarelli/AzPolicyExport",
-    "commitSha": "5c8ab73fa0487076538c5c0c2015d30848e2c3be",
-    "runUrl": "https://github.com/DarrenTurchiarelli/AzPolicyExport/actions/runs/3278146011",
+    "commitSha": "16426ae81d42a3392ca6498d2a4aad4373e261e6",
+    "runUrl": "https://github.com/DarrenTurchiarelli/AzPolicyExport/actions/runs/3278181977",
     "filepath": "policies/Deny-resource-without-tag_358f00f5-7fa5-4ed5-90a8-1afeaa381e57"
    }
   },

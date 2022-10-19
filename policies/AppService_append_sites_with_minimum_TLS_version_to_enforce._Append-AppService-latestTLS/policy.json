@@ -15,8 +15,15 @@
    "version": "1.0.0",
    "createdBy": "2394e203-969f-432a-a31e-ad991b40a835",
    "createdOn": "2022-10-17T23:20:27.8964913Z",
-   "updatedBy": null,
-   "updatedOn": null
+   "updatedBy": "9aa0a562-2d90-40b7-ac58-c95a00d1c4b6",
+   "updatedOn": "2022-10-19T01:37:13.2984031Z",
+   "gitHubPolicy": {
+    "digest": "f5f478c84b673cd34f039e455cd71b6cf405614f",
+    "repoName": "DarrenTurchiarelli/AzPolicyExport",
+    "commitSha": "16426ae81d42a3392ca6498d2a4aad4373e261e6",
+    "runUrl": "https://github.com/DarrenTurchiarelli/AzPolicyExport/actions/runs/3278181977",
+    "filepath": "policies/AppService_append_sites_with_minimum_TLS_version_to_enforce._Append-AppService-latestTLS"
+   }
   },
   "parameters": {
    "effect": {

@@ -15,8 +15,15 @@
    "version": "1.0.0",
    "createdBy": "2394e203-969f-432a-a31e-ad991b40a835",
    "createdOn": "2022-10-17T23:20:27.5465063Z",
-   "updatedBy": null,
-   "updatedOn": null
+   "updatedBy": "9aa0a562-2d90-40b7-ac58-c95a00d1c4b6",
+   "updatedOn": "2022-10-19T01:37:13.3696688Z",
+   "gitHubPolicy": {
+    "digest": "b5d959388f1c22af7033f47d07dfd07a528a62fc",
+    "repoName": "DarrenTurchiarelli/AzPolicyExport",
+    "commitSha": "16426ae81d42a3392ca6498d2a4aad4373e261e6",
+    "runUrl": "https://github.com/DarrenTurchiarelli/AzPolicyExport/actions/runs/3278181977",
+    "filepath": "policies/Application_Gateway_should_be_deployed_with_WAF_enabled_Deny-AppGW-Without-WAF"
+   }
   },
   "parameters": {
    "effect": {
