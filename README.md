@@ -7,6 +7,10 @@ An Azure Policy as Code workflow makes it possible to manage your policy definit
 
 Citations: 
 
+Techcommunity - https://techcommunity.microsoft.com/t5/core-infrastructure-and-security/azure-enterprise-policy-as-code-azure-landing-zones-integration/ba-p/3642784
+
+Policy repo - https://github.com/Azure/enterprise-azure-policy-as-code/tree/main/Scripts/CloudAdoptionFramework
+
 Tutorial on how to implement Azure Policy as Code with GitHub - https://learn.microsoft.com/en-us/azure/governance/policy/tutorials/policy-as-code-github
 
 GitHub Actions for deploying to Azure - https://github.com/Azure/login
